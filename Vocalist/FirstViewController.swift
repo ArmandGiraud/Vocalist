@@ -45,8 +45,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        disable  the save button
-        updateSaveButtonState()
+
         
         russian_text.delegate = self
         french_text.delegate = self
@@ -66,6 +65,15 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         save_button.layer.cornerRadius = 10.0
         save_button.clipsToBounds = true
+        
+        
+        //        edit cell:
+        if let meal = meal {
+            french_text.text = meal.word
+            russian_text.text = meal.translation
+        }
+        //        disable  the save button
+        updateSaveButtonState()
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         updateSaveButtonState()
@@ -80,7 +88,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Disable the Save button while editing.
-        save_button.isEnabled = false
+        // save_button.isEnabled = false
     }
     //MARK: Private Methods
     private func updateSaveButtonState() {

@@ -13,8 +13,6 @@
         <!--First View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <exit id="MPs-N4-q3j" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Vocalist" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -60,7 +58,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ri5-0a-t82">
                                 <rect key="frame" x="16" y="309" width="80" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71104224393380155" green="0.77786407827725867" blue="0.18719559511790762" alpha="0.53000000000000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.48253269679234662" green="0.41117919482975945" blue="0.77786407827725867" alpha="0.53000000000000003" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <state key="normal" title="Save" backgroundImage="z">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,7 +76,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96851998567581177" green="0.88539006907787565" blue="0.92558669883299238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="XG4-ut-TR1" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="15" id="9nj-ts-8c0"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="XG4-ut-TR1" secondAttribute="trailing" constant="15" id="KD7-0F-sfi"/>
@@ -98,6 +96,8 @@
                         <outlet property="save_button" destination="Ri5-0a-t82" id="3A5-zB-9LU"/>
                     </connections>
                 </viewController>
+                <exit id="MPs-N4-q3j" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.5" y="-321.5"/>
         </scene>
@@ -182,6 +182,7 @@
                                     <outlet property="french_place" destination="A30-RY-eAM" id="o1t-hS-16n"/>
                                     <outlet property="ratingControl" destination="xfn-9u-hMz" id="M17-SQ-dSi"/>
                                     <outlet property="russian_place" destination="3xy-ih-2dF" id="qy8-hz-lgR"/>
+                                    <segue destination="9pv-A4-QxB" kind="show" identifier="ShowDetail" id="YnR-t1-Cwl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -194,7 +195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcN-4i-GXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679.20000000000005" y="368.36581709145429"/>
+            <point key="canvasLocation" x="586" y="713"/>
         </scene>
     </scenes>
     <resources>
@@ -202,4 +203,7 @@
         <image name="russe" width="350" height="247"/>
         <image name="z" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="u7Y-xg-7CH"/>
+    </inferredMetricsTieBreakers>
 </document>
