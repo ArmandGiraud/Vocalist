@@ -9,20 +9,29 @@
 import UIKit
 import os.log
 
-class MealTableViewController: UITableViewController {
+class MealTableViewController: UITableViewController, UISearchBarDelegate {
     //MARK: Properties
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet var table: UITableView!
+    
     var meals = [Meal]()
-
+    var current_meals = [Meal]()
+    var both = ""
+    
     override func viewDidLoad() {
+        setUpSearchBar()
         super.viewDidLoad()
         // Load any saved meals, otherwise load sample data.
         if let savedMeals = loadMeals() {
             meals += savedMeals
+            current_meals = meals
         }else {
             // Load the sample data.
             loadSampleMeals()
+            current_meals = meals
         }
+
         
     }
 
@@ -38,7 +47,7 @@ class MealTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return meals.count
+        return current_meals.count
     }
 
     
@@ -52,11 +61,11 @@ class MealTableViewController: UITableViewController {
         }
 
         // Fetches the appropriate meal for the data source layout.
-        let meal = meals[indexPath.row]
+        let current_meals = self.current_meals[indexPath.row]
         
-        cell.french_place.text = meal.word
-        cell.russian_place.text = meal.translation
-        cell.ratingControl.rating = meal.rating
+        cell.french_place.text = current_meals.word
+        cell.russian_place.text = current_meals.translation
+        cell.ratingControl.rating = current_meals.rating
 
         return cell
     }
@@ -135,17 +144,19 @@ class MealTableViewController: UITableViewController {
 
         if let sourceViewController = sender.source as? FirstViewController,
             let meal = sourceViewController.meal {
-            
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
                 meals[selectedIndexPath.row] = meal
+                current_meals[selectedIndexPath.row] = meal
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
+                saveMeals()
             }
             else{
 
                 // Add a new meal.
                 let newIndexPath = IndexPath(row: meals.count, section: 0)
                 meals.append(meal)
+                current_meals.append(meal)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
                 // Save the meals.
                 saveMeals()
@@ -153,6 +164,22 @@ class MealTableViewController: UITableViewController {
 
 
         }
+    }
+    //MARK: class methods:
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        current_meals = meals
+        guard !searchText.isEmpty else {
+            current_meals = meals
+            tableView.reloadData()
+            return
+        }
+    
+        
+        current_meals = meals.filter({ meal -> Bool in
+            (meal.word.lowercased() + " " + meal.translation.lowercased()).contains(searchText.lowercased())
+        
+        })
+        tableView.reloadData()
     }
     //MARK: Private Methods
     
@@ -173,6 +200,7 @@ class MealTableViewController: UITableViewController {
         meals += [meal1, meal2, meal3]
     }
     private func saveMeals() {
+        
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
         // test if saving is successful
         if isSuccessfulSave {
@@ -181,10 +209,19 @@ class MealTableViewController: UITableViewController {
             os_log("Failed to save meals...", log: OSLog.default, type: .error)
         }
     }
-    
-    private func loadMeals() -> [Meal]? {
+    private func loadMeals() -> [Meal]?  {
+        print(Meal.ArchiveURL)
         return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
     }
+    private func setUpSearchBar(){
+        searchBar.delegate = self
+    }
     
+    //MARK: SearchBar delegates
+    private func searchBarTextDidEndEditing(_ searcBar: UISearchBar) -> Bool {
+        // Hide the keyboard.
+        searchBar.resignFirstResponder()
+        return true
+    }
 
 }

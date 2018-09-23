@@ -144,9 +144,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="qZh-h2-weV">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="68" id="5Tg-bb-ACI" customClass="MealTableViewCell" customModule="Vocalist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="68"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="68"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Tg-bb-ACI" id="mr9-40-pSe">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
@@ -192,6 +197,10 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="s6h-cT-BUM"/>
+                    <connections>
+                        <outlet property="searchBar" destination="qZh-h2-weV" id="riA-Cu-g54"/>
+                        <outlet property="tableView" destination="2hO-r0-FkO" id="Bft-Ag-JJN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcN-4i-GXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
