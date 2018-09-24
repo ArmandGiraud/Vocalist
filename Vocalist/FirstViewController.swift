@@ -17,7 +17,16 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var french_text: UITextField!
     @IBOutlet weak var label_russian: UILabel!
     @IBOutlet weak var russian_text: UITextField!
+    @IBOutlet weak var example_text: UITextField!
+    @IBOutlet weak var example_label: UILabel!
+    
     @IBOutlet weak var save_button: UIButton!
+    
+    // photos
+    @IBOutlet weak var photo_fr: UIImageView!
+    @IBOutlet weak var photo_ru: UIImageView!
+    @IBOutlet weak var photo_ex: UIImageView!
+    
     
     //MARK: Navigation
     // This method lets you configure a view controller before it's presented.
@@ -28,9 +37,10 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
             
             let word = french_text.text ?? ""
             let translation = russian_text.text ?? ""
+            let example = example_text.text ?? ""
             os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
             // Set the meal to be passed to MealTableViewController after the unwind segue.
-            meal = Meal(word: word, translation: translation, rating: 0)
+            meal = Meal(word: word, translation: translation, example: example , rating: 0)
             
             return
         }
@@ -49,6 +59,7 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         
         russian_text.delegate = self
         french_text.delegate = self
+        example_text.delegate = self
         
         //edit_title.backgroundColor = UIColor.blueColor()
         edit_title.layer.cornerRadius = 8.0
@@ -66,11 +77,26 @@ class FirstViewController: UIViewController, UITextFieldDelegate {
         save_button.layer.cornerRadius = 10.0
         save_button.clipsToBounds = true
         
+        photo_fr.layer.cornerRadius = 6.0
+        photo_fr.clipsToBounds = true
+        
+        photo_ru.layer.cornerRadius = 6.0
+        photo_ru.clipsToBounds = true
+        
+        photo_ex.layer.cornerRadius = 6.0
+        photo_ex.clipsToBounds = true
+        
+        example_text.layer.cornerRadius = 6.0
+        example_text.clipsToBounds = true
+        
+        example_label.layer.cornerRadius = 6.0
+        example_label.clipsToBounds = true
         
         //        edit cell:
         if let meal = meal {
             french_text.text = meal.word
             russian_text.text = meal.translation
+            example_text.text = meal.example
         }
         //        disable  the save button
         updateSaveButtonState()

@@ -12,6 +12,7 @@ class MealTableViewCell: UITableViewCell {
     //MARK: properties
     @IBOutlet weak var french_place: UILabel!
     @IBOutlet weak var russian_place: UILabel!
+    @IBOutlet weak var example_place: UILabel!
     @IBOutlet weak var ratingControl: RatingControl!
     
     override func awakeFromNib() {

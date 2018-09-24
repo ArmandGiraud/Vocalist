@@ -65,6 +65,7 @@ class MealTableViewController: UITableViewController, UISearchBarDelegate {
         
         cell.french_place.text = current_meals.word
         cell.russian_place.text = current_meals.translation
+        cell.example_place.text = current_meals.example
         cell.ratingControl.rating = current_meals.rating
 
         return cell
@@ -185,16 +186,16 @@ class MealTableViewController: UITableViewController, UISearchBarDelegate {
     
     private func loadSampleMeals() {
        
-        guard let meal1 = Meal(word: "Le Manteau", translation: "пальто" , rating: 4) else {
+        guard let meal1 = Meal(word: "Le Manteau", translation: "пальто" ,example: "Quand j'ai froid, je porte mon manteau", rating: 4) else {
             fatalError("Unable to instantiate meal1")
         }
         
-        guard let meal2 = Meal(word: "l'aspirateur", translation: "вакуум", rating: 5) else {
+        guard let meal2 = Meal(word: "l'aspirateur", translation: "вакуум", example: "J'ai acheté un nouvel aspirateur", rating: 5) else {
             fatalError("Unable to instantiate meal2")
         }
         
-        guard let meal3 = Meal(word: "l'écran", translation: "экран",  rating: 3) else {
-            fatalError("Unable to instantiate meal2")
+        guard let meal3 = Meal(word: "l'écran", translation: "экран",example: "Mon écran est tout bleu!!" , rating: 3) else {
+            fatalError("Unable to instantiate meal3")
         }
         
         meals += [meal1, meal2, meal3]

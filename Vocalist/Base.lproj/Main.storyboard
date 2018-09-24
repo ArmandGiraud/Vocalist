@@ -56,7 +56,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ri5-0a-t82">
-                                <rect key="frame" x="16" y="309" width="80" height="48"/>
+                                <rect key="frame" x="16" y="416" width="80" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.48253269679234662" green="0.41117919482975945" blue="0.77786407827725867" alpha="0.53000000000000003" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
@@ -75,6 +75,25 @@
                                 <rect key="frame" x="248" y="119" width="37" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Example:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPL-Zu-Abg">
+                                <rect key="frame" x="16" y="316" width="145" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="0.39881207190000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JCv-Xa-gfB">
+                                <rect key="frame" x="16" y="349" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="example_image" translatesAutoresizingMaskIntoConstraints="NO" id="9un-GC-hi1">
+                                <rect key="frame" x="240" y="316" width="52" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96851998567581177" green="0.88539006907787565" blue="0.92558669883299238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -89,9 +108,14 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="edit_title" destination="XG4-ut-TR1" id="WBv-J3-MXx"/>
+                        <outlet property="example_label" destination="sPL-Zu-Abg" id="agr-oY-XS9"/>
+                        <outlet property="example_text" destination="JCv-Xa-gfB" id="Tcw-sR-e9v"/>
                         <outlet property="french_text" destination="fbB-DF-Lrr" id="OCL-Am-Fpb"/>
                         <outlet property="label_french" destination="RsV-H8-Z5m" id="2fL-Qk-G4x"/>
                         <outlet property="label_russian" destination="5rJ-z1-BcU" id="VAN-AP-vbT"/>
+                        <outlet property="photo_ex" destination="9un-GC-hi1" id="coU-QF-c4o"/>
+                        <outlet property="photo_fr" destination="L31-wp-rO1" id="4Ju-fA-rdU"/>
+                        <outlet property="photo_ru" destination="qIK-0E-rHR" id="ufi-G8-gJA"/>
                         <outlet property="russian_text" destination="63m-Fe-wLC" id="fyW-hu-Vre"/>
                         <outlet property="save_button" destination="Ri5-0a-t82" id="3A5-zB-9LU"/>
                     </connections>
@@ -99,7 +123,7 @@
                 <exit id="MPs-N4-q3j" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.5" y="-321.5"/>
+            <point key="canvasLocation" x="748" y="-321.58920539730138"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QOB-cc-Y86">
@@ -140,7 +164,7 @@
         <scene sceneID="diW-Br-nMK">
             <objects>
                 <tableViewController id="zyV-SK-2BL" customClass="MealTableViewController" customModule="Vocalist" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2hO-r0-FkO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2hO-r0-FkO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -150,11 +174,11 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="68" id="5Tg-bb-ACI" customClass="MealTableViewCell" customModule="Vocalist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="68"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="72" id="5Tg-bb-ACI" customClass="MealTableViewCell" customModule="Vocalist" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Tg-bb-ACI" id="mr9-40-pSe">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="french word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A30-RY-eAM">
@@ -180,10 +204,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="example" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09F-6W-7JW">
+                                            <rect key="frame" x="16" y="49" width="343" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.8328179896379112" green="0.91482391064164392" blue="0.96851998567581177" alpha="0.87649828767123283" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="example_place" destination="09F-6W-7JW" id="RSp-H5-h6W"/>
                                     <outlet property="french_place" destination="A30-RY-eAM" id="o1t-hS-16n"/>
                                     <outlet property="ratingControl" destination="xfn-9u-hMz" id="M17-SQ-dSi"/>
                                     <outlet property="russian_place" destination="3xy-ih-2dF" id="qy8-hz-lgR"/>
@@ -204,15 +236,16 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KcN-4i-GXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586" y="713"/>
+            <point key="canvasLocation" x="584.79999999999995" y="712.89355322338838"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultphoto" width="112" height="75"/>
+        <image name="example_image" width="400" height="270"/>
         <image name="russe" width="350" height="247"/>
         <image name="z" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="u7Y-xg-7CH"/>
+        <segue reference="YnR-t1-Cwl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,7 @@ class Meal: NSObject, NSCoding {
     //MARK: Properties
     var word: String
     var translation: String
+    var example: String
     var rating: Int
     
     //MARK: Archiving Paths
@@ -26,11 +27,12 @@ class Meal: NSObject, NSCoding {
     struct PropertyKey {
         static let word = "word"
         static let translation = "translation"
+        static let example = "example"
         static let rating = "rating"
     }
     //MARK: Initialization
     
-    init?(word: String, translation: String, rating: Int) {
+    init?(word: String, translation: String, example: String,  rating: Int) {
         // Initialization should fail if there is no name or if the rating is negative.
         if word.isEmpty || rating < 0  {
             return nil
@@ -39,6 +41,7 @@ class Meal: NSObject, NSCoding {
         // Initialize stored properties.
         self.word = word
         self.translation = translation
+        self.example = example
         self.rating = rating
         
         
@@ -47,6 +50,7 @@ class Meal: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(word, forKey: PropertyKey.word)
         aCoder.encode(translation, forKey: PropertyKey.translation)
+        aCoder.encode(example, forKey: PropertyKey.example)
         aCoder.encode(rating, forKey: PropertyKey.rating)
 
     }
@@ -61,9 +65,12 @@ class Meal: NSObject, NSCoding {
             os_log("Unable to decode the translation for a Meal object.", log: OSLog.default, type: .debug)
             return nil
         }
+        guard let example = aDecoder.decodeObject(forKey: PropertyKey.example) as? String else {
+            os_log("Unable to decode the example for a Meal object.", log: OSLog.default, type: .debug)
+            return nil
+        }
         let rating = aDecoder.decodeInteger(forKey: PropertyKey.rating)
-        self.init(word: word, translation: translation, rating: rating)
-        
+        self.init(word: word, translation: translation, example: example, rating: rating)
     }
 }
 
