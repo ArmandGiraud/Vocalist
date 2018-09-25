@@ -18,6 +18,7 @@
 		C45BA817214D6AC2001563E4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45BA816214D6AC2001563E4 /* RatingControl.swift */; };
 		C45BA819214D772E001563E4 /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45BA818214D772E001563E4 /* MealTableViewController.swift */; };
 		C45BA81B214D79F7001563E4 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45BA81A214D79F7001563E4 /* Meal.swift */; };
+		C4B60BAC215A7F6A004FBC74 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B60BAB215A7F6A004FBC74 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		C45BA816214D6AC2001563E4 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C45BA818214D772E001563E4 /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		C45BA81A214D79F7001563E4 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		C4B60BAB215A7F6A004FBC74 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				C45BA7F021480F26001563E4 /* SecondViewController.swift */,
 				C45BA816214D6AC2001563E4 /* RatingControl.swift */,
 				C45BA7F221480F26001563E4 /* Main.storyboard */,
+				C4B60BAB215A7F6A004FBC74 /* GameViewController.swift */,
 				C45BA818214D772E001563E4 /* MealTableViewController.swift */,
 				C45BA81A214D79F7001563E4 /* Meal.swift */,
 				C45BA7F521480F26001563E4 /* Assets.xcassets */,
@@ -216,6 +219,7 @@
 				C45BA7F121480F26001563E4 /* SecondViewController.swift in Sources */,
 				C45BA81B214D79F7001563E4 /* Meal.swift in Sources */,
 				C45BA7ED21480F26001563E4 /* AppDelegate.swift in Sources */,
+				C4B60BAC215A7F6A004FBC74 /* GameViewController.swift in Sources */,
 				C45BA817214D6AC2001563E4 /* RatingControl.swift in Sources */,
 				C45BA819214D772E001563E4 /* MealTableViewController.swift in Sources */,
 				C45BA7EF21480F26001563E4 /* FirstViewController.swift in Sources */,
