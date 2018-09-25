@@ -179,6 +179,13 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Submit"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjP-ZW-xgd">
+                                        <rect key="frame" x="84" y="155" width="176" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.59301083669145926" green="0.49219604289912772" blue="0.85601359605789185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -187,6 +194,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title="Start !"/>
+                                <connections>
+                                    <action selector="start_game:" destination="w4w-u3-7sj" eventType="touchUpInside" id="mxG-WJ-Pwr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.65430192354873551" green="1" blue="0.73366632397927445" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -197,8 +207,10 @@
                         <outlet property="answer_text_filed" destination="JEs-5U-c2b" id="Gbd-Yl-KyM"/>
                         <outlet property="box" destination="SVE-ru-evP" id="yrG-SA-lCf"/>
                         <outlet property="modesPicker" destination="fM2-gD-SNT" id="tNs-Ob-QiG"/>
+                        <outlet property="result_label" destination="JjP-ZW-xgd" id="t3E-Jg-ebv"/>
                         <outlet property="roundsPicker" destination="vLp-9H-zc1" id="xoy-sP-inu"/>
-                        <outlet property="start_button" destination="XDb-2s-976" id="z0N-JD-Igh"/>
+                        <outlet property="start_button" destination="XDb-2s-976" id="Snt-mY-wrm"/>
+                        <outlet property="submit_button" destination="cRg-GJ-erW" id="Gna-MY-fDo"/>
                         <outlet property="translation_label" destination="xvh-p0-nr7" id="VBu-YG-sjS"/>
                         <outlet property="view" destination="Vjp-R1-8dH" id="WcW-ks-Tsn"/>
                         <outlet property="word_placeholder" destination="HQu-BS-lzG" id="Ssf-tK-Lyu"/>

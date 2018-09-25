@@ -18,17 +18,21 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var word_placeholder: UILabel!
     @IBOutlet weak var answer_text_filed: UITextField!
     
+    @IBOutlet weak var result_label: UILabel!
+    @IBOutlet weak var submit_button: UIButton!
     
     var pickerData: [String] = [String]()
     var roundsData: [String] = [String]()
     var meals = [Meal]()
+    
+    var selected_mode: String = "Russian to French"
+    var selected_rounds: Int = 0
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
         
         makeRound()
-        get_word()
         
         modesPicker.delegate = self
         modesPicker.dataSource = self
@@ -74,6 +78,17 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
+
+        
+        if pickerView == modesPicker {
+            selected_mode = pickerData[row]
+        }else if pickerView == roundsPicker{
+            selected_rounds = Int(roundsData[row])!
+        }else {
+            
+        }
+        
+        
     }
     
     func makeRound(){
@@ -92,10 +107,25 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         // add a if russian to french or french to russian
         // save loaded words
         meals = loadMeals()!
-        let n = Int(arc4random_uniform(UInt32(Int(meals.count))))
-        word_placeholder.text = meals[n].word
+        print(selected_mode)
+        if selected_mode == "Russian to French" {
+            let n = Int(arc4random_uniform(UInt32(Int(meals.count))))
+            word_placeholder.text = meals[n].translation
+        }else if selected_mode == "French to Russian"{
+            let n = Int(arc4random_uniform(UInt32(Int(meals.count))))
+            word_placeholder.text = meals[n].word
+        }else{
+            
+        }
         
     }
+    
+    //MARK: Actions
+    @IBAction func start_game(_ sender: Any) {
+        get_word()
+    }
+
+    
     
     func loadMeals() -> [Meal]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
