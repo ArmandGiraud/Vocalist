@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     @IBOutlet weak var roundsPicker: UIPickerView!
     @IBOutlet weak var modesPicker: UIPickerView!
     
@@ -21,6 +21,7 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBOutlet weak var result_label: UILabel!
     @IBOutlet weak var submit_button: UIButton!
+    @IBOutlet weak var points_label: UILabel!
     
     var pickerData: [String] = [String]()
     var roundsData: [String] = [String]()
@@ -29,6 +30,7 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var selected_mode: String = "Russian to French"
     var selected_rounds: Int = 0
     var n: Int = 0
+    var points: Int = 0
     
     var expected_answer: String! = ""
     
@@ -104,8 +106,6 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         box.layer.shadowOpacity = 0.5
         box.layer.masksToBounds = false
         box.layer.cornerRadius = 15
-        
-        box.layer.borderWidth = 2.0
     }
 
     
@@ -138,6 +138,8 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if answer_text_filed.text!.lowercased() == expected_answer.lowercased(){
             result_label.text = "Good job!"
             get_word()
+            points+=10
+            points_label.text = "Your Points: \(points)"
         }else{
             result_label.text = "Try again!"
         }
@@ -149,15 +151,29 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     //MARK: Actions
     @IBAction func start_game(_ sender: Any) {
+        points-=5
+        points_label.text = "Your Points: \(points)"
+        get_word()
+        
     }
 
     @IBAction func submit_action(_ sender: Any) {
         check_answer()
+        answer_text_filed.resignFirstResponder()
+        
     }
     
     
     func loadMeals() -> [Meal]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    }
+    
+    
+    //MARK: UItextfield delegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        return true
     }
 
     /*

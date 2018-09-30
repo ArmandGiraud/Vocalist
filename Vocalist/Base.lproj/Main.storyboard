@@ -149,7 +149,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SVE-ru-evP">
-                                <rect key="frame" x="14" y="329" width="345" height="226"/>
+                                <rect key="frame" x="15" y="243" width="345" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find translation for:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvh-p0-nr7">
@@ -183,24 +183,31 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JjP-ZW-xgd">
-                                        <rect key="frame" x="84" y="155" width="176" height="36"/>
+                                        <rect key="frame" x="18" y="164" width="176" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
-                                        <color key="textColor" red="0.54021708419113801" green="0.9194520115852356" blue="0.38267989164877897" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-2s-976">
+                                        <rect key="frame" x="158" y="105" width="102" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <state key="normal" title="Skip"/>
+                                        <connections>
+                                            <action selector="start_game:" destination="w4w-u3-7sj" eventType="touchUpInside" id="mxG-WJ-Pwr"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Points: 0 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ol1-0q-qar">
+                                        <rect key="frame" x="214" y="172" width="111" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.59301083669145926" green="0.49219604289912772" blue="0.85601359605789185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.43085223060349925" green="0.85601359605789185" blue="0.42386980030604743" alpha="0.51886237157534254" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-2s-976">
-                                <rect key="frame" x="16" y="236" width="91" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <state key="normal" title="Start !"/>
-                                <connections>
-                                    <action selector="start_game:" destination="w4w-u3-7sj" eventType="touchUpInside" id="mxG-WJ-Pwr"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.65430192354873551" green="1" blue="0.73366632397927445" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="GSw-0U-FCa"/>
@@ -210,6 +217,7 @@
                         <outlet property="answer_text_filed" destination="JEs-5U-c2b" id="Gbd-Yl-KyM"/>
                         <outlet property="box" destination="SVE-ru-evP" id="yrG-SA-lCf"/>
                         <outlet property="modesPicker" destination="fM2-gD-SNT" id="tNs-Ob-QiG"/>
+                        <outlet property="points_label" destination="ol1-0q-qar" id="xW6-2n-UYi"/>
                         <outlet property="result_label" destination="JjP-ZW-xgd" id="t3E-Jg-ebv"/>
                         <outlet property="roundsPicker" destination="vLp-9H-zc1" id="xoy-sP-inu"/>
                         <outlet property="start_button" destination="XDb-2s-976" id="Snt-mY-wrm"/>
