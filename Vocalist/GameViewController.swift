@@ -141,7 +141,10 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             points+=10
             points_label.text = "Your Points: \(points)"
         }else{
-            result_label.text = "Try again!"
+            let a = String.SubSequence(expected_answer.lowercased())
+            let b = String.SubSequence(answer_text_filed.text!.lowercased())
+            let dist = Levenshtein().calculateDistance(a: a, b: b)
+            result_label.text = "Try again! distance to Answer is: \(String(dist))"
         }
         print(expected_answer.lowercased())
         print(answer_text_filed.text!.lowercased())
@@ -151,7 +154,7 @@ class GameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     //MARK: Actions
     @IBAction func start_game(_ sender: Any) {
-        points-=5
+        points-=3
         points_label.text = "Your Points: \(points)"
         get_word()
         
